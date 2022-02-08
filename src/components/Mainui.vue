@@ -1,7 +1,8 @@
 <template>
   <el-container class="el-container">
     <el-aside class="el-aside">
-      <p><i class="far fa-star"> Enterprise Portal</i></p>
+      <br />
+      <span> &nbsp; <i class="far fa-star"></i> Enterprise Portal</span>
       <el-menu class="el-menu">
         <el-submenu index="1">
           <template slot="title"
@@ -10,8 +11,7 @@
             ></template
           >
         </el-submenu>
-
-        <el-submenu index="2">
+        <el-submenu index="2" class="Nav-icon">
           <template slot="title"
             ><span><i class="Nav-icon el-icon-menu"> Hosts</i></span></template
           >
@@ -23,10 +23,6 @@
           <el-menu-item-group title="Group 2">
             <el-menu-item index="2-3">Option 3</el-menu-item>
           </el-menu-item-group>
-          <el-submenu index="2-4">
-            <template slot="title">Option 4</template>
-            <el-menu-item index="2-4-1">Option 4-1</el-menu-item>
-          </el-submenu>
         </el-submenu>
 
         <el-submenu index="1">
@@ -53,10 +49,6 @@
           <el-menu-item-group title="Group 2">
             <el-menu-item index="3-3">Option 3</el-menu-item>
           </el-menu-item-group>
-          <el-submenu index="3-4">
-            <template slot="title">Option 4</template>
-            <el-menu-item index="3-4-1">Option 4-1</el-menu-item>
-          </el-submenu>
         </el-submenu>
       </el-menu>
     </el-aside>
@@ -121,7 +113,34 @@
       </el-header>
 
       <el-main>
-        <h1>All quality of service profiles</h1>
+        <template>
+          <el-row :gutter="20">
+            <el-col :span="12">
+              <p>All quality of service profiles</p>
+            </el-col>
+            <el-col :span="6">
+              <el-input placeholder="Please input" v-model="input"></el-input>
+            </el-col>
+            <el-col :span="6">
+              <div class="grid-content bg-purple-light" style="30px">
+                <el-select
+                  class="table-select"
+                  style=""
+                  v-model="value"
+                  placeholder="Select"
+                >
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+              </div>
+            </el-col>
+          </el-row>
+        </template>
         <el-table
           :data="tableData"
           :default-sort="{ order: 'descending' }"
@@ -139,9 +158,24 @@
           <el-table-column prop="bond" sortable label="Bonds" width="300">
           </el-table-column>
 
-          <el-table-column prop="class" sortable label="Classes" width="200">
+          <el-table-column prop="class" sortable label="Classes" width="150">
           </el-table-column>
         </el-table>
+
+        <el-row :gutter="20">
+          <el-col :span="16">
+            <p>Page:1</p>
+          </el-col>
+          <el-col :span="6">
+            <el-pagination
+              style="padding-right: 10px"
+              background
+              layout="prev, pager, next"
+              :total="1000"
+            >
+            </el-pagination>
+          </el-col>
+        </el-row>
       </el-main>
     </el-container>
   </el-container>
@@ -170,6 +204,20 @@ export default {
         {
           id: 3,
           name: "Joe Blck",
+          space: "parentdev",
+          bond: 2,
+          class: 1,
+        },
+        {
+          id: 4,
+          name: "nathan",
+          space: "parentdev",
+          bond: 2,
+          class: 1,
+        },
+        {
+          id: 4,
+          name: "nathan",
           space: "parentdev",
           bond: 2,
           class: 1,
@@ -265,5 +313,17 @@ export default {
 }
 .Nav-icon {
   color: rgb(232, 232, 232);
+}
+.Nav-icon:hover {
+  color: Black;
+}
+.el-menu-item-group {
+  background-color: #257ace;
+}
+.el-submenu {
+  color: #0f3050;
+}
+p {
+  color: black;
 }
 </style>
