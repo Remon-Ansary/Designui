@@ -7,13 +7,13 @@
         <el-submenu index="1">
           <template slot="title"
             ><span
-              ><i class="Nav-icon el-icon-menu"> Dashboard</i></span
+              ><i class="Nav-icon fas fa-home"> Dashboard</i></span
             ></template
           >
         </el-submenu>
         <el-submenu index="2" class="Nav-icon">
           <template slot="title"
-            ><span><i class="Nav-icon el-icon-menu"> Hosts</i></span></template
+            ><span><i class="Nav-icon fas fa-server"> Hosts</i></span></template
           >
           <el-menu-item-group>
             <template slot="title">Group 1</template>
@@ -27,19 +27,19 @@
 
         <el-submenu index="1">
           <template slot="title"
-            ><i class="Nav-icon el-icon-menu"> Bonds</i></template
+            ><i class="Nav-icon fas fa-share-alt"> Bonds</i></template
           >
         </el-submenu>
 
         <el-submenu index="1">
           <template slot="title"
-            ><i class="Nav-icon el-icon-menu"> Spaces</i></template
+            ><i class="Nav-icon fas fa-tasks"> Spaces</i></template
           >
         </el-submenu>
 
         <el-submenu index="3">
           <templat slot="title">
-            <i class="Nav-icon el-icon-setting"> Policies</i></templat
+            <i class="Nav-icon fas fa-user-shield"> Policies</i></templat
           >
           <el-menu-item-group>
             <template slot="title">Group 1</template>
@@ -313,6 +313,7 @@ export default {
 }
 .Nav-icon {
   color: rgb(232, 232, 232);
+  
 }
 .Nav-icon:hover {
   color: Black;
